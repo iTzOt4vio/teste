@@ -20,3 +20,11 @@ class Livraria:
         else:
             print(f"O livro '{titulo}' não está no estoque.")
         return False
+
+    def listar_livros(self):
+        if self.estoque:
+            print("Livros disponíveis:")
+            for titulo, quantidade in self.estoque.items():
+                print(f"{titulo}: {quantidade} cópias")
+        else:
+            print("Bosta")
