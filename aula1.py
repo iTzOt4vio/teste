@@ -1,31 +1,19 @@
-class Livraria:
-    def __init__(self):
-        self.estoque = {}
+from tkinter import *
 
-    def adicionar_livro(self, titulo, quantidade):
-        if titulo in self.estoque:
-            self.estoque[titulo] += quantidade
-        else:
-            self.estoque[titulo] = quantidade
+def pegar_cotacoes():
+    print("Nigger")
 
-    def remover_livro(self, titulo, quantidade):
-        if titulo in self.estoque:
-            if self.estoque[titulo] >= quantidade:
-                self.estoque[titulo] -= quantidade
-                if self.estoque[titulo] == 0:
-                    del self.estoque[titulo]
-                return True
-            else:
-                print(f"Não há estoque suficiente para remover {quantidade} cópias de '{titulo}'.")
-        else:
-            print(f"O livro '{titulo}' não está no estoque.")
-        return False
-    print("Alou")
+janela = Tk()
+janela.title("Cotação Atual de Moedas")
+texto = Label(janela, text="Clique no botão para ver as cotações de moedas")
+texto.grid(column=0, row=0, padx=10, pady=10)
+janela.geometry("400x400")
 
-    def listar_livros(self):
-        if self.estoque:
-            print("Livros disponíveis:")
-            for titulo, quantidade in self.estoque.items():
-                print(f"{titulo}: {quantidade} cópias")
-        else:
-            print("Bosta")
+botao = Button(janela, text="Buscar cotações", command=pegar_cotacoes)
+botao.grid(column=0, row=1, padx=10, pady=10)
+
+texto_resposta = Label(janela, text="")
+texto_resposta.grid(column=0, row=2, padx=10, pady=10)
+
+
+janela.mainloop()
