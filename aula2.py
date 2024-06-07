@@ -4,14 +4,23 @@ def adicionar_usuario(dados):
 def remover_usuario(dados):
     return f"Usuário {dados['nome']} removido."
 
-def usuario(valor, usuario):
+def executar_comando(comando, nome_usuario):
+    dados = {"nome": nome_usuario}
     comandos = {
         "adicionar": adicionar_usuario,
         "remover": remover_usuario
     }
-    return comandos.get(valor, usuario)
+    funcao = comandos.get(comando)
+    if funcao:
+        return funcao(dados)
+    else:
+        return "Comando inválido."
 
-
+# Entrada do usuário
 resposta = input("adicionar/remover: \n")
 usuariores = input("Usuário: \n")
-seletor = usuario(resposta, usuariores)
+
+# Executa o comando e exibe o resultado
+resultado = executar_comando(resposta, usuariores)
+print(resultado)
+# test de mudança
